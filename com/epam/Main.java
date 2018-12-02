@@ -4,6 +4,7 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        String text = "qwerty";
 
         File file1 = new File("File1.txt");
         if (!file1.exists()) {
@@ -15,7 +16,7 @@ public class Main {
         }
 
         FileWriter fw = new FileWriter("File1.txt");
-        fw.write("qwerty");
+        fw.write(text);
         fw.flush();
 
         File file2 = new File("File2.txt");
@@ -29,10 +30,11 @@ public class Main {
 
         FileInputStream fRead = new FileInputStream("File1.txt");
         FileOutputStream fWrite = new FileOutputStream("File2.txt");
-        System.out.println("Copied!");
         int c;
-        while ((c=fRead.read())!=-1)
+        while ((c = fRead.read())!= -1)
             fWrite.write((char)c);
+        System.out.println("Copied!");
+
         fRead.close();
         fWrite.close();
     }
